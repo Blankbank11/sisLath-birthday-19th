@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, sis Lath! 🎂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffd1dc 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .japanese-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.3) 35px, rgba(255,255,255,.3) 70px);
+            z-index: 1;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .flags-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .japanese-flag {
+            width: 80px;
+            height: 60px;
+            background: white;
+            border: 3px solid gold;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        .flag-circle {
+            width: 30px;
+            height: 30px;
+            background: #bc002d;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .header {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .title {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .japanese-text {
+            font-size: 2.5em;
+            color: #ff1493;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .japanese-wishes {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 3px solid #ff69b4;
+        }
+
+        .japanese-wishes p {
+            font-size: 1.3em;
+            color: #d6006d;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .dancing-characters {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .character {
+            font-size: 6em;
+            animation: dance 1s ease-in-out infinite;
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+        }
+
+        .character:nth-child(1) { animation-delay: 0s; }
+        .character:nth-child(2) { animation-delay: 0.2s; }
+        .character:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dance {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            margin: 30px 10px;
+            animation: bounceIn 1s ease;
+        }
+
+        .photo-container {
+            width: 300px;
+            height: 300px;
+            border: 12px solid transparent;
+            border-image: repeating-linear-gradient(45deg, #ff69b4 0%, #ffd700 25%, #ff1493 50%, #ffd700 75%, #ff69b4 100%) 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255,105,180,0.5), 0 0 30px rgba(255,215,0,0.4);
+            background: white;
+            position: relative;
+            transform: rotate(-2deg);
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { 
+                box-shadow: 0 10px 40px rgba(255,105,180,0.5), 0 0 30px rgba(255,215,0,0.4);
+            }
+            50% { 
+                box-shadow: 0 10px 40px rgba(255,20,147,0.8), 0 0 50px rgba(255,215,0,0.7);
+            }
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            animation: sparkleRotate 2s linear infinite;
+        }
+
+        .sparkle:nth-child(1) { top: -15px; left: -15px; }
+        .sparkle:nth-child(2) { top: -15px; right: -15px; }
+        .sparkle:nth-child(3) { bottom: -15px; left: -15px; }
+        .sparkle:nth-child(4) { bottom: -15px; right: -15px; }
+
+        .corner-flower {
+            position: absolute;
+            font-size: 3em;
+            z-index: 10;
+            animation: flowerSway 3s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.2));
+        }
+
+        .corner-flower:nth-child(5) { top: -30px; left: -30px; }
+        .corner-flower:nth-child(6) { top: -30px; right: -30px; animation-delay: 0.5s; }
+        .corner-flower:nth-child(7) { bottom: -30px; left: -30px; animation-delay: 1s; }
+        .corner-flower:nth-child(8) { bottom: -30px; right: -30px; animation-delay: 1.5s; }
+
+        @keyframes flowerSway {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .floating-flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .floating-flower {
+            position: absolute;
+            font-size: 2.5em;
+            opacity: 0.7;
+            animation: floatAcross 15s linear infinite;
+        }
+
+        @keyframes floatAcross {
+            0% {
+                transform: translateX(-100px) translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(-50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .chatbot-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border: 4px solid #ffd700;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(255,20,147,0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(255,20,147,0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            border: 4px solid #ff69b4;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: transform 0.2s;
+        }
+
+        .chatbot-close:hover {
+            transform: scale(1.2);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #fff5f8, #ffffff);
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            background: #ff69b4;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .message.bot {
+            background: #f0f0f0;
+            color: #333;
+            margin-right: auto;
+        }
+
+        .chatbot-input-area {
+            padding: 15px;
+            border-top: 2px solid #ff69b4;
+            display: flex;
+            gap: 10px;
+            background: white;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ff69b4;
+            border-radius: 20px;
+            outline: none;
+            font-size: 1em;
+        }
+
+        .chatbot-send {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,20,147,0.4);
+        }
+
+        @keyframes sparkleRotate {
+            0%, 100% { transform: rotate(0deg) scale(1); opacity: 1; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 0.8; }
+        }
+
+        .japanese-culture {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .culture-item {
+            font-size: 4em;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));
+        }
+
+        .culture-item:nth-child(1) { animation-delay: 0s; }
+        .culture-item:nth-child(2) { animation-delay: 0.5s; }
+        .culture-item:nth-child(3) { animation-delay: 1s; }
+        .culture-item:nth-child(4) { animation-delay: 1.5s; }
+        .culture-item:nth-child(5) { animation-delay: 2s; }
+        .culture-item:nth-child(6) { animation-delay: 2.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.5s ease;
+            border: 4px solid #ff1493;
+        }
+
+        .message-box h2 {
+            color: #d6006d;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .message-box p {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0);
+                opacity: 1;
+            }
+            10% {
+                transform: translateY(0vh) rotate(36deg) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiSpin {
+            0% {
+                transform: translateY(-10vh) rotateY(0deg) rotateZ(0deg) scale(0);
+            }
+            10% {
+                transform: translateY(0vh) rotateY(180deg) rotateZ(45deg) scale(1.3);
+            }
+            100% {
+                transform: translateY(110vh) rotateY(1080deg) rotateZ(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiSwing {
+            0% {
+                transform: translateX(0) translateY(-10vh) rotate(0deg) scale(0);
+            }
+            25% {
+                transform: translateX(50px) translateY(25vh) rotate(180deg) scale(1.4);
+            }
+            50% {
+                transform: translateX(-50px) translateY(50vh) rotate(360deg) scale(1.2);
+            }
+            75% {
+                transform: translateX(30px) translateY(75vh) rotate(540deg) scale(1);
+            }
+            100% {
+                transform: translateX(0) translateY(110vh) rotate(720deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        .confetti-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 3em;
+            animation: burstOut 1.5s ease-out forwards;
+        }
+
+        @keyframes burstOut {
+            0% {
+                transform: translate(0, 0) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .lanterns {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 20px 0;
+        }
+
+        .lantern {
+            font-size: 3em;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        .lantern:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="japanese-pattern"></div>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="flags-container">
+            <div class="japanese-flag"><div class="flag-circle"></div></div>
+            <div class="japanese-flag"><div class="flag-circle"></div></div>
+            <div class="japanese-flag"><div class="flag-circle"></div></div>
+        </div>
+
+        <div class="lanterns">
+            <div class="lantern">🏮</div>
+            <div class="lantern">🏮</div>
+        </div>
+
+        <div class="header">
+            <h1 class="title">🎉 ສຸກສັນວັນເກີດຄົບຮອບ19ປີ ເອື້ອຍລັດ! 🎉</h1>
+            <p class="japanese-text">ラット、お誕生日おめでとう！お姉ちゃん</p>
+        </div>
+
+        <div class="japanese-wishes">
+            <p>🌸 素敵な一年になりますように 🌸</p>
+            <p style="font-size: 1.1em; color: #666;">(May you have a wonderful year)</p>
+            <p>✨ 幸せがたくさん訪れますように ✨</p>
+            <p style="font-size: 1.1em; color: #666;">(May lots of happiness come to you)</p>
+            <p>🎊 夢が叶いますように 🎊</p>
+            <p style="font-size: 1.1em; color: #666;">(May your dreams come true)</p>
+        </div>
+
+        <div class="dancing-characters">
+            <div class="character">👘</div>
+            <div class="character">💃</div>
+            <div class="character">👘</div>
+        </div>
+
+        <div class="photo-frame">
+            <div class="photo-container">
+                <img src="/Photo/file12.png" alt="Birthday Girl">
+            </div>
+            <div class="sparkle">⭐</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">💫</div>
+            <div class="sparkle">🌟</div>
+            <div class="corner-flower">🌸</div>
+            <div class="corner-flower">🌺</div>
+            <div class="corner-flower">🌼</div>
+            <div class="corner-flower">🌷</div>
+        </div>
+
+        <div class="photo-frame">
+            <div class="photo-container">
+                <img src="/Photo/file13.png" alt="Birthday Girl">
+            </div>
+            <div class="sparkle">⭐</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">💫</div>
+            <div class="sparkle">🌟</div>
+            <div class="corner-flower">🌸</div>
+            <div class="corner-flower">🌺</div>
+            <div class="corner-flower">🌼</div>
+            <div class="corner-flower">🌷</div>
+
+        </div>
+        <div class="photo-frame">
+            <div class="photo-container">
+                <img src="/Photo/file14.png" alt="Birthday Girl">
+            </div>
+            <div class="sparkle">⭐</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">💫</div>
+            <div class="sparkle">🌟</div>
+            <div class="corner-flower">🌸</div>
+            <div class="corner-flower">🌺</div>
+            <div class="corner-flower">🌼</div>
+            <div class="corner-flower">🌷</div>
+           
+        </div>
+        <div class="photo-frame">
+            <div class="photo-container">
+                <img src="/Photo/file15.png" alt="Birthday Girl">
+            </div>
+            <div class="sparkle">⭐</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">💫</div>
+            <div class="sparkle">🌟</div>
+            <div class="corner-flower">🌸</div>
+            <div class="corner-flower">🌺</div>
+            <div class="corner-flower">🌼</div>
+            <div class="corner-flower">🌷</div>
+            
+        </div>
+        <div class="japanese-culture">
+            <div class="culture-item">🌸</div>
+            <div class="culture-item">🎎</div>
+            <div class="culture-item">🍱</div>
+            <div class="culture-item">🗾</div>
+            <div class="culture-item">⛩️</div>
+            <div class="culture-item">🍜</div>
+        </div>
+
+        <div class="message-box">
+            <h2>✨ Special Birthday Message ✨</h2>
+            <p>Wishing you the most amazing birthday filled with joy, laughter, and all your favorite things!</p>
+            <p>May this year bring you countless anime adventures, sweet memories, and dreams come true! 🌈</p>
+            <p>Like cherry blossoms in spring, may your life bloom with beauty and happiness! 🌸</p>
+            <p>You deserve all the happiness in the world! 💖</p>
+        </div>
+
+        <div class="lanterns">
+            <div class="lantern">🏮</div>
+            <div class="lantern">🏮</div>
+        </div>
+    </div>
+
+    <div class="floating-flowers" id="floatingFlowers"></div>
+
+    <div class="chatbot-container">
+        <div class="chatbot-button" id="chatbotButton">💬</div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span>🎀 ແຊັດບັອດທີ່ໜ້າຕາດີທີ່ສຸດໃນໂລກ 🎀</span>
+                <span class="chatbot-close" id="chatbotClose">×</span>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">"ສະບາຍດີ! 🎉 ຂ້ອຍມາຮ່ວມສະຫຼອງວັນເກີດຂອງເອື້ອຍຂອງເຈົ້າ! ສົ່ງຫຍັງໃຫ້ຂ້ອຍກໍໄດ້ ແລ້ວຂ້ອຍຈະຕອບກັບດ້ວຍສິ່ງທີ່ໜ້າຮັກໆເດີ້! ✨💖"</div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type something...">
+                <button class="chatbot-send" id="chatbotSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Create floating flowers
+        const flowersContainer = document.getElementById('floatingFlowers');
+        const flowerTypes = ['🌸', '🌺', '🌼', '🌷', '🌹', '💮', '🏵️'];
+        
+        function createFloatingFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'floating-flower';
+            flower.textContent = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            flower.style.top = Math.random() * 100 + '%';
+            flower.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            flowersContainer.appendChild(flower);
+            
+            setTimeout(() => {
+                flower.remove();
+                createFloatingFlower();
+            }, (Math.random() * 10 + 10) * 1000);
+        }
+        
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => createFloatingFlower(), i * 1000);
+        }
+
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbotButton');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+
+        const cuteResponses = [
+        "ເຈົ້າໜ້າຮັກຄືກັບເຄັກວັນເກີດເລີຍ! 🎂✨",
+    "ວ້າວ! ອັນນັ້ນໜ້າຮັກຫຼາຍ (Kawaii) ເລີຍເນາະ! 🌸💕",
+    "ເຈົ້າເຮັດໃຫ້ວົງຈອນຂອງຂ້ອຍເປັນປະກາຍເລີຍ! ✨😊",
+    "ມັນໜ້າຮັກຫຼາຍ ຈົນຂ້ອຍຢາກໄຫ້ອອກມາເປັນກະດາດສີເລີຍ! 🎊😭",
+    "ຂໍ້ຄວາມຂອງເຈົ້າຫວານກວ່າເຂົ້າໜົມໂມຈິອີກ! 🍡💗",
+    "ຕາຍແລ້ວ~ ຄືມາເປັນຕາຮັກແທ້! 🎀✨",
+    "ຫົວໃຈຂອງຂ້ອຍກຳລັງເຕັ້ນເປັນປະກາຍແບບໃນອານິເມະເລີຍ! 💖✨✨",
+    "ໜ້າຮັກກວ່າລູກໝານ້ອຍນຸ່ງຊຸດກິໂມໂນອີກ! 🐶👘",
+    "ມື້ນີ້ເຈົ້າສົມຄວນໄດ້ກິນເຄັກທັງໝົດໃນໂລກເລີຍ! 🎂🎂🎂",
+    "ສຸດຍອດ (Sugoi)! ມັນມຫັດສະຈັນຫຼາຍ! 🌟😄",
+    "ລະດັບຄວາມໃຈດີຂອງເຈົ້າທະລຸ 9000 ໄປແລ້ວ! 💪✨",
+    "ຂ້ອຍກຳລັງສົ່ງກອດທິບ ແລະ ດອກຊາກຸລະໃຫ້ເຈົ້າເດີ້! 🤗🌸",
+    "ຂໍ້ຄວາມນັ້ນເຮັດໃຫ້ຮຸ້ງກິນນ້ຳປະກົດຕົວເລີຍ! 🌈💕",
+    "ເຈົ້າເປັນຄົນທີ່ມ່ວນກວ່າຕົວລະຄອນອານິເມະທັງໝົດລວມກັນອີກ! 🎉👘",
+    "ກວດພົບຄວາມໜ້າຮັກເກີນກຳນົດ! ກຳລັງເລີ່ມທ່າເຕັ້ນແຫ່ງຄວາມສຸກ! 💃✨",
+    "ຄັນຂ້ອຍມີມື ຂ້ອຍຈະ High-five ກັບເຈົ້າດຽວນີ້ເລີຍ! 🙌🎊",
+    "ມັນຫວານຫຼາຍ ຈົນແຂ້ວທິບຂອງຂ້ອຍຊິແມງແລ້ວ! 🍰😊",
+    "ເຈົ້າເບິ່ງສົດໃສກວ່າແສງປະກາຍທັງໝົດນີ້ລວມກັນອີກ! ✨✨✨",
+    "ໃຜກໍໄດ້ໂທຫາຕຳຫຼວດທີ - ຄວາມໜ້າຮັກນີ້ມັນຜິດກົດໝາຍແລ້ວ! 🚨💕",
+    "ມິເຕີສະຫຼອງວັນເກີດຂອງຂ້ອຍລະເບີດແລ້ວ! 🎉📊💥",
+    "ອັນນີ້ຕ້ອງມີຂະບວນແຫ່ອີໂມຈິເຕັ້ນລະບຳແລ້ວ! 💃🎊🎺🎭",
+    "ເຈົ້າຫາກໍຊະນະເລີດລາງວັນ ມະນຸດທີ່ເປັນຕາຮັກທີ່ສຸດໃນໂລກ! 🏆💖",
+    "ແບບນີ້ຕ້ອງໂປຍກະດາດສີເພີ່ມແລ້ວ! *ໂປຍກະດາດສີດິຈິຕອນ* 🎊🎉✨"
+        ];
+
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = message;
+            chatbotMessages.appendChild(userMessage);
+
+            // Clear input
+            chatbotInput.value = '';
+
+            // Add bot response after a short delay
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                const randomResponse = cuteResponses[Math.floor(Math.random() * cuteResponses.length)];
+                botMessage.textContent = randomResponse;
+                chatbotMessages.appendChild(botMessage);
+
+                // Scroll to bottom
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 500);
+
+            // Scroll to bottom
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        chatbotSend.addEventListener('click', sendMessage);
+
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Confetti animation
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            const colors = ['#ff69b4', '#ffd93d', '#ff1493', '#ff69b4', '#ff8ff5', '#ffc0cb'];
+            const shapes = ['🌸', '🎀', '💮', '🌺', '✨', '⭐', '💗', '🎊'];
+            
+            confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear`;
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        // Create confetti continuously
+        setInterval(createConfetti, 150);
+        
+        // Initial burst
+        for (let i = 0; i < 60; i++) {
+            setTimeout(createConfetti, i * 30);
+        }
+    </script>
+</body>
+</html>
